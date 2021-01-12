@@ -9,7 +9,12 @@ public class Radix {
     }  
 
     public static int length(int n) {
-        return 4;
+        String num = Integer.toString(n);
+        int result = num.length();
+        if (num.charAt(0) == '-') {
+            result--;
+        }
+        return result;
     }
     public static void merge(MyLinkedList original,MyLinkedList[]buckets) {
 
