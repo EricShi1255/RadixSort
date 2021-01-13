@@ -61,6 +61,7 @@ public class Radix {
     } 
     public static void radixSort(SortableLinkedList list) {
         int digits = length(list.get(0));
+        int largest = list.get(0);
         for (int i = 0; i < digits; i++) { //how many passes to make
             
                 //normal
@@ -93,12 +94,19 @@ public class Radix {
                 int eachnumber = list.get(j);
                 int eachdigit = nth(eachnumber, i);
 
+                if (i == 0) {
+                    if (eachnumber > largest) {
+                        largest = eachnumber;
+                        digits = length(largest);
+                    }
+                }
+
                 char negative = (Integer.toString(eachnumber)).charAt(0);
                 if (negative != '-') {
                     bucket[eachdigit].add(eachnumber);
                 }
                 else {
-                    negativebucket[10-eachdigit].add(-1*eachnumber);
+                    negativebucket[9-eachdigit].add(eachnumber);
                 }
                 list.remove(j);
                 j--;
