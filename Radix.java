@@ -16,16 +16,42 @@ public class Radix {
         }
         return result;
     }
-    public static void merge(MyLinkedList original,MyLinkedList[]buckets) {
+    public static void merge(SortableLinkedList original,SortableLinkedList[]buckets) {
         //Merge all of the linked lists in the bucket array into your original linked list. The original may have elements, and those should be kept.
         for (int i = 0; i < buckets.length; i++) {
             original.extend(buckets[i]);
         }
     }
-    public static void radixSort(SortableLinkedList list) {
-        //int digits = list.get(0);
-        //for (int i = 0; i < list.size(); i ++) {
-        // }
+    public static void radixSortSimple(SortableLinkedList list) {
+        //Assume there are no negative values.
+        int digits = length(list.get(0));
+        for (int i = 0; i < digits; i++) { //how many passes to make
+            
+                SortableLinkedList a0 = new SortableLinkedList();
+                SortableLinkedList b1 = new SortableLinkedList();
+                SortableLinkedList c2 = new SortableLinkedList();
+                SortableLinkedList d3 = new SortableLinkedList();
+                SortableLinkedList e4 = new SortableLinkedList();
+                SortableLinkedList f5 = new SortableLinkedList();
+                SortableLinkedList g6 = new SortableLinkedList();
+                SortableLinkedList h7 = new SortableLinkedList();
+                SortableLinkedList i8 = new SortableLinkedList();
+                SortableLinkedList j9 = new SortableLinkedList();
+
+                SortableLinkedList[] bucket =  {a0, b1, c2, d3, e4, f5, g6, h7, i8, j9};
+
+            for (int j = 0; j < list.size(); j++) { //looping over the array
+                int eachnumber = list.get(j);
+                int eachdigit = nth(eachnumber, i);
+                
+                bucket[eachdigit].add(eachnumber);
+                list.remove(j);
+            }
+            merge(list, bucket);
+        }
+    } 
+    public static void radixSort(SortableLinkedList data) {
+
     }
 
     
