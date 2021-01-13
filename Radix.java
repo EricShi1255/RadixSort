@@ -46,6 +46,7 @@ public class Radix {
                 
                 bucket[eachdigit].add(eachnumber);
                 list.remove(j);
+                j--;
             }
             merge(list, bucket);
         }
