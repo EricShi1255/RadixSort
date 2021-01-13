@@ -17,9 +17,16 @@ public class Radix {
         return result;
     }
     public static void merge(MyLinkedList original,MyLinkedList[]buckets) {
+        //Merge all of the linked lists in the bucket array into your original linked list. The original may have elements, and those should be kept.
+        for (int i = 0; i < buckets.length; i++) {
+            original.extend(buckets[i]);
+        }
+    }
+    public static void radixSort(SortableLinkedList list) {
+        //int digits = list.get(0);
+        //for (int i = 0; i < list.size(); i ++) {
+        // }
+    }
 
-    }
-    public static void main(String[] args) {
-        System.out.println(nth(-123,3));
-    }
+    
 }
