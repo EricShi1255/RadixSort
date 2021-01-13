@@ -42,14 +42,16 @@ public class Radix {
                 SortableLinkedList[] bucket =  {a0, b1, c2, d3, e4, f5, g6, h7, i8, j9};
 
             for (int j = 0; j < list.size(); j++) { //looping over the array
-                //largest number
-                if (i = 0) {
-
-                }
-                //actual sorting
                 int eachnumber = list.get(j);
                 int eachdigit = nth(eachnumber, i);
-                
+                //largest number
+                if (i == 0) {
+                    if (eachnumber > largest) {
+                        largest = eachnumber;
+                        digits = length(largest);
+                    }
+                }
+                //actual sorting
                 bucket[eachdigit].add(eachnumber);
                 list.remove(j);
                 j--;
