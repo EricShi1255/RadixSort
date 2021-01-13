@@ -41,8 +41,8 @@ public class Radix {
 
                 SortableLinkedList[] bucket =  {a0, b1, c2, d3, e4, f5, g6, h7, i8, j9};
 
-            for (int j = 0; j < list.size(); j++) { //looping over the array
-                int eachnumber = list.get(j);
+            while (list.size() != 0) { //looping over the array
+                int eachnumber = list.get(0);
                 int eachdigit = nth(eachnumber, i);
                 //largest number
                 if (i == 0) {
@@ -53,8 +53,7 @@ public class Radix {
                 }
                 //actual sorting
                 bucket[eachdigit].add(eachnumber);
-                list.remove(j);
-                j--;
+                list.remove(0);
             }
             merge(list, bucket);
         }
@@ -90,8 +89,8 @@ public class Radix {
                 SortableLinkedList[] bucket =  {a0, b1, c2, d3, e4, f5, g6, h7, i8, j9};
                 SortableLinkedList[] negativebucket = {aa, bb, cc, dd, ee, ff, gg, hh, ii, jj};
 
-            for (int j = 0; j < list.size(); j++) { //looping over the array
-                int eachnumber = list.get(j);
+            while (list.size() != 0) { //looping over the array
+                int eachnumber = list.get(0);
                 int eachdigit = nth(eachnumber, i);
 
                 if (i == 0) {
@@ -108,8 +107,7 @@ public class Radix {
                 else {
                     negativebucket[9-eachdigit].add(eachnumber);
                 }
-                list.remove(j);
-                j--;
+                list.remove(0);
             }
             merge(list, negativebucket);
             merge(list, bucket);
